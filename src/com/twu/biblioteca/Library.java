@@ -10,4 +10,32 @@ public class Library {
     public Book[] getBooks() {
         return books;
     }
+
+    public String displayBooksOnShelf() {
+        String bookList = new String();
+        for (Book book : books) {
+            if (book.getOnLoan() != true)   {
+                bookList +=
+                    ("Title: " + book.getTitle() + ", " +
+                            "Author: " + book.getAuthor() + ", " +
+                            "Year: " + book.getYear() + "\n"
+                    );
+            }
+
+        }
+        return bookList;
+
+    }
+
+    public String displayAllBooks() {
+        String bookList = new String();
+        for (Book book : books) {
+            bookList +=
+                    ("Title: " + book.getTitle() + ", " +
+                            "Author: " + book.getAuthor() + ", " +
+                            "Year: " + book.getYear() + "\n"
+                    );
+        }
+        return bookList;
+    }
 }

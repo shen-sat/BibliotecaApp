@@ -7,19 +7,33 @@ import static org.junit.Assert.*;
 public class LibraryTest {
 
     Library library = new Library();
+    Book books[] = getExampleBooks();
 
     @Test
     public void setAndGetBooks() {
-        Book books[] = getExampleBooks();
         library.setBooks(books);
         assertEquals(books, library.getBooks());
     }
 
     @Test
-    public void displayBooks() {
-        //library.displayBooks();
-        //assertEquals();
+    public void displayAllBooks() {
+        library.setBooks(books);
+        String libraryList =(   "Title: Book 1, Author: Mr A, Year: 1990\n" +
+                                "Title: Book 2, Author: Mr B, Year: 1991\n" +
+                                "Title: Book 3, Author: Mr C, Year: 1992\n"
+        );
+        assertEquals(libraryList, library.displayAllBooks());
     }
+
+    @Test
+    public void displayOnlyBooksNotOnLoan() {
+        library.setBooks(books);
+        String libraryList =(   "Title: Book 1, Author: Mr A, Year: 1990\n" +
+                                "Title: Book 2, Author: Mr B, Year: 1991\n"
+        );
+        assertEquals(libraryList, library.displayBooksOnShelf());
+    }
+
 
     private Book[] getExampleBooks() {
         Book book1 = new Book();
@@ -34,6 +48,7 @@ public class LibraryTest {
         book3.setTitle("Book 3");
         book3.setAuthor("Mr C");
         book3.setYear(1992);
+        book3.setOnLoan(true);
         Book books[] = {book1, book2, book3};
         return books;
     }
