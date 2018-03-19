@@ -2,8 +2,8 @@ package com.twu.biblioteca;
 
 public class Menu {
 
-    private String welcome = new String ("Welcome to Biblioteca!\n");
-    private String options = new String ("Press 1 to see a list of all books\nPress 2 to quit");
+    private String welcome = new String ("- - - - Welcome to Biblioteca! - - - -\n");
+    private String options = new String ("* Press 1 to see a list of all books\n* Press 2 to quit");
     private String incorrect = new String("Select a valid option!");
     private String textToConsole = new String();
     private Library library = new Library();
