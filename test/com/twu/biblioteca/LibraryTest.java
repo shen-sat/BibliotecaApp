@@ -34,6 +34,35 @@ public class LibraryTest {
         assertEquals(libraryList, library.displayBooksOnShelf());
     }
 
+    @Test
+    public void checkoutBook() {
+        library.setBooks(books);
+        library.checkOut("Book 1");
+        assertEquals(true, books[0].getOnLoan());
+
+    }
+
+    @Test
+    public void checkoutBookSucessful() {
+
+        library.setBooks(books);
+        assertEquals("Thank you! Enjoy the book.", library.checkOut("Book 1"));
+    }
+
+    @Test
+    public void checkoutBookAlreadyOnLoan() {
+        library.setBooks(books);
+        assertEquals("That book is not available.", library.checkOut("Book 3"));
+
+    }
+
+    @Test
+    public void checkoutBookDoesntExist() {
+        library.setBooks(books);
+        assertEquals("That book is not available.", library.checkOut("Book 4"));
+
+    }
+
 
     private Book[] getExampleBooks() {
         Book book1 = new Book();
