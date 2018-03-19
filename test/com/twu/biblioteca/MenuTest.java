@@ -5,13 +5,17 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class MenuTest {
-    Menu menu = new Menu();
-    String options = new String("Press 1 to see a list of all books\n");
-    String incorrect = new String("Select a valid option!\n");
+
+    Library library = new Library();
+    ExampleBooks exampleBooks = new ExampleBooks();
+    Menu menu = new Menu(library);
+    String options = new String("Press 1 to see a list of all books\nPress 2 to quit");
+    String incorrect = new String("Select a valid option!");
     String welcome = new String("Welcome to Biblioteca!\n");
 
     @Test
     public void displayOptions() {
+
         assertEquals(options, menu.displayOptions());
     }
 
@@ -22,12 +26,15 @@ public class MenuTest {
 
     @Test
     public void correctInput() {
-        assertEquals(options, menu.getUserInput(1));
+        library.setBooks(exampleBooks.books());
+        assertEquals(library.displayBooksOnShelf() + "\n", menu.getUserInput(1));
     }
 
     @Test
     public void welcome() {
         assertEquals(welcome, menu.displayWelcome());
     }
+
+
 
 }
