@@ -63,6 +63,13 @@ public class LibraryTest {
 
     }
 
+    @Test
+    public void returnBook() {
+        library.setBooks(books);
+        library.returnBook("Book 3");
+        assertEquals(false, books[2].getOnLoan());
+
+    }
 
     private Book[] getExampleBooks() {
         Book book1 = new Book();

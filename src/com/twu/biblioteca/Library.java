@@ -59,4 +59,11 @@ public class Library {
     }
 
 
+    public void returnBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle() == title)   {
+                book.setOnLoan(false);
+            }
+        }
+    }
 }
