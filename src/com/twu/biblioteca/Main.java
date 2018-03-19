@@ -1,17 +1,25 @@
 package com.twu.biblioteca;
+import java.util.Scanner;
 
 public class Main {
 
-
-    public static void main(String[] args)  {
         Menu menu = new Menu();
         Library library = new Library();
         ExampleBooks exampleBooks = new ExampleBooks();
-        //Give library example books
-        library.setBooks(exampleBooks.books());
 
-        
-    }
+
+        public void runApp()    {
+            //Give library example books
+            library.setBooks(exampleBooks.books());
+            //System.out.println("App Running");
+
+            System.out.println(menu.displayWelcome());
+            System.out.println(menu.displayOptions());
+            Scanner scanner = Scanner.new(System.in);
+        }
+
+
+
 
 
 }
