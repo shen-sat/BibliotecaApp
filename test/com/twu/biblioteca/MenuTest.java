@@ -7,7 +7,8 @@ import static org.junit.Assert.*;
 public class MenuTest {
     Menu menu = new Menu();
     String options = new String("Press 1 to see a list of all books\n");
-    String incorrect = new String("Select a valid option!");
+    String incorrect = new String("Select a valid option!\n");
+    String welcome = new String("Welcome to Biblioteca!\n");
 
     @Test
     public void displayOptions() {
@@ -16,14 +17,17 @@ public class MenuTest {
 
     @Test
     public void incorrectInput() {
-        menu.getUserInput(2);
-        assertEquals(incorrect, menu.getTextToConsole());
+        assertEquals(incorrect, menu.getUserInput(2));
     }
-
 
     @Test
-    public void quitApp() {
-        menu.getUserInput(2);
-        assertEquals(incorrect, menu.getTextToConsole());
+    public void correctInput() {
+        assertEquals(options, menu.getUserInput(1));
     }
+
+    @Test
+    public void welcome() {
+        assertEquals(welcome, menu.displayWelcome());
+    }
+
 }

@@ -6,6 +6,7 @@ public class Book {
     private int year;
     private boolean onLoan;
 
+
     public void setTitle(String title)  {
         this.title = title;
     }
